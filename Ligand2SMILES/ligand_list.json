@@ -12865,4 +12865,7 @@
 "BISBI": "C1=CC=C(C=C1)P(CC2=CC=CC=C2C3=CC=CC=C3CP(C4=CC=CC=C4)C5=CC=CC=C5)C6=CC=CC=C6",
 "CySelectPhos": "CN(C)C1=CC=CC=C1P(C2CCCCC2)C3CCCCC3",
 "PhSelectPhos": "CN(C)C1=CC=CC=C1P(C2=CC=CC=C2)C3=CC=CC=C3"
+"1,10-Phenanthroline": "c1cc2ccc3cccnc3c2nc1"
+"SIMes": "Cc1cc(C)c(c(C)c1)N2CCN([C]2)c3c(C)cc(C)cc3C" 
+  
 }
