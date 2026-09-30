@@ -1,0 +1,23 @@
+name: Publish to PyPI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check data file is valid JSON
+        run: python -c "import json; json.load(open('Ligand2SMILES/ligand_list.json'))"
+      - name: Build
+        run: pip install build && python -m build
+      - name: Publish
+        uses: pypa/gh-action-pypi-publish@release/v1
