@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=77.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,21 +7,23 @@ name = "Ligand2SMILES"
 version = "0.1.0"
 description = "A tool for converting ligand names to SMILES notation"
 readme = "README.md"
-requires-python = ">=3.8"
-license = { text = "MIT" }
+requires-python = ">=3.9"
+license = "MIT"
 authors = [
     { name = "Pedro Augusto Durao Rodrigues", email = "pedroaugustoduraorodrigues@gmail.com" }
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
-
 
 [project.urls]
 Homepage = "https://github.com/KevlishviliGroup/Ligand2SMILES"
 Issues = "https://github.com/KevlishviliGroup/Ligand2SMILES/issues"
 
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["."]
+include = ["Ligand2SMILES*"]
+
+[tool.setuptools.package-data]
+Ligand2SMILES = ["ligand_list.json"]
