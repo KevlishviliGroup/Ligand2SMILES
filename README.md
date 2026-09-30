@@ -9,13 +9,25 @@ including the full Buchwald monophosphine family, bisphosphines, NHC ligands, an
 
 ## Installation
 
-```bash
-git clone https://github.com/Pedro-DR-TH/Ligand2SMILES
+```
+pip install ligand2smiles
+```
+
+Or install the latest version straight from GitHub:
+
+```
+pip install git+https://github.com/KevlishviliGroup/Ligand2SMILES.git
+```
+
+Or from a local clone:
+
+```
+git clone https://github.com/KevlishviliGroup/Ligand2SMILES
 cd Ligand2SMILES
 pip install .
 ```
 
-No dependencies beyond the Python standard library. The lookup database is included, no setup or any scraping is required.
+Requires Python 3.9+. No dependencies beyond the Python standard library. The lookup database is included, so no setup or scraping is required.
 
 All entries are validated through RDKit and cross-checked against source molecular weights (entries with a discrepancy of ≥1 Da were removed) before inclusion in the database.
 
