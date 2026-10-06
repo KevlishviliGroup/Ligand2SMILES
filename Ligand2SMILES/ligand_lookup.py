@@ -15,30 +15,12 @@ def _load():
 _LOOKUP = _load()
 
 def name_to_smiles(name: str) -> Optional[str]:
-    """
-    Look up a compound or ligand name and return its SMILES string.
-    Case-insensitive. Returns None if not found.
-
-    Examples
-    --------
-    >>> name_to_smiles("XPhos")
-    'CC(C)C1=CC...'
-    >>> name_to_smiles("unknown")
-    None
-    """
+  
     return _LOOKUP.get(name.strip().lower())
 
 
 def search(query: str) -> list:
-    """
-    Search for compounds whose name contains the query string.
-    Case-insensitive. Returns a list of {name, smiles} dicts.
-
-    Examples
-    --------
-    >>> search("phos")
-    [{'name': 'XPhos', 'smiles': '...'}, ...]
-    """
+ 
     query = query.strip().lower()
     with open(_DATA_PATH) as f:
         data = json.load(f)
@@ -52,33 +34,7 @@ def search(query: str) -> list:
 
 
 def fuzzy_search(name: str, threshold: float = 0.6, top_n: int = 5) -> list:
-    """
-    Search for compounds using fuzzy string matching.
-    Useful for handling typos, OCR errors, and abbreviation variants.
-    Returns top matches above the similarity threshold.
-
-    Parameters
-    ----------
-    name : str
-        The name to search for (can be misspelled or abbreviated).
-    threshold : float
-        Minimum similarity score (0-1). Default 0.6.
-    top_n : int
-        Maximum number of results to return. Default 5.
-
-    Returns
-    -------
-    list of dict
-        Each dict has keys 'name', 'smiles', 'score'.
-        Sorted by score descending.
-
-    Examples
-    --------
-    >>> fuzzy_search("xphos")
-    [{'name': 'XPhos', 'smiles': '...', 'score': 1.0}]
-    >>> fuzzy_search("triphenylphospine")  # typo
-    [{'name': 'triphenylphosphine', 'smiles': '...', 'score': 0.97}]
-    """
+  
     query = name.strip().lower()
     results = []
 
@@ -92,14 +48,7 @@ def fuzzy_search(name: str, threshold: float = 0.6, top_n: int = 5) -> list:
 
 
 def available_names() -> list:
-    """
-    Return a sorted list of all compound names in the lookup table.
-
-    Examples
-    --------
-    >>> available_names()
-    ['1,10-phenanthroline', 'BINAP', 'BrettPhos', ...]
-    """
+  
     with open(_DATA_PATH) as f:
         data = json.load(f)
     if isinstance(data, dict):
